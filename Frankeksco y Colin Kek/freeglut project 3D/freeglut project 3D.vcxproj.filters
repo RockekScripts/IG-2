@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Coche">
+      <UniqueIdentifier>{6001b9c5-7b31-4b06-88a6-7b37707a56b6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -39,6 +42,15 @@
     <ClCompile Include="ObjetoCompuesto.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ObjetoCuadrico.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Rueda.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Coche.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Malla.h">
@@ -60,6 +72,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ObjetoCompuesto.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjetoCuadrico.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Rueda.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Coche.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

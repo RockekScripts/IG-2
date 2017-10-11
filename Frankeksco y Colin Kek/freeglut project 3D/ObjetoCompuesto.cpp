@@ -1,7 +1,7 @@
 #include "ObjetoCompuesto.h"
 
 
-ObjetoCompuesto::ObjetoCompuesto()
+ObjetoCompuesto::ObjetoCompuesto():Objeto3D()
 {
 }
 
@@ -13,8 +13,14 @@ ObjetoCompuesto::~ObjetoCompuesto()
 void ObjetoCompuesto::dibuja() {
 	glMatrixMode(GL_MODELVIEW);
 	glPushMatrix();
-/*	glMultMatrix(this->mT->m);
+	glMultMatrixf(this->mT->m);
 	for (int i = 0; i<numHijos; i++)
-		hijo[i]->dibuja();*/
+		hijos[i]->dibuja();
 	glPopMatrix();
 }
+void ObjetoCompuesto::introduceObjeto(Objeto3D* objeto) {
+	numHijos++;//cambiar 
+	hijos[numHijos - 1] = objeto;
+}
+
+

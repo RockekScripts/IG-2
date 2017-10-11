@@ -4,8 +4,9 @@
 
 #include "PuntoVector3D.h"
 #include "Cara.h"
+#include "Objeto3D.h"
 
-class Malla {
+class Malla:public Objeto3D {
 protected:
 	int numeroVertices;
 	PuntoVector3D** vertice;
@@ -17,7 +18,7 @@ protected:
 public:
 	Malla(int nV, int nN, int nC, PuntoVector3D** v, PuntoVector3D** n, Cara** c);
 	Malla();
-	~Malla();
+	virtual ~Malla();
 	int getNumeroVertices();
 	int getNumeroNormales();
 	int getNumeroCaras();

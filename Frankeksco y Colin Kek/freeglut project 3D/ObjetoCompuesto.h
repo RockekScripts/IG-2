@@ -4,10 +4,12 @@ class ObjetoCompuesto: public Objeto3D
 {
 public:
 	ObjetoCompuesto();
-	~ObjetoCompuesto();
+	virtual ~ObjetoCompuesto();
 	virtual void dibuja();
+	void introduceObjeto(Objeto3D* objeto);
+	
 protected:
-	int numHijos;
+	int numHijos=0;
 	Objeto3D** hijos;
 };
 

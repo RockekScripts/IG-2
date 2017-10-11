@@ -3,6 +3,8 @@
 #include <gl/GLU.h>
 
 #include <GL/freeglut.h>
+#include "Rueda.h"
+#include "Coche.h"
 //#include <GL/glut.h>
 
 #include <iostream>
@@ -23,13 +25,18 @@ GLdouble eyeX=100.0, eyeY=100.0, eyeZ=100.0;
 GLdouble lookX=0.0, lookY=0.0, lookZ=0.0;
 GLdouble upX=0, upY=1, upZ=0;
 
+
+//
+Rueda ruedo;
+Coche coche;
+
 // Scene variables
 GLfloat angX, angY, angZ; 
 void arbol();
 void buildSceneObjects() {	 
     angX=0.0f;
     angY=0.0f;
-    angZ=0.0f;	
+	angZ = 0.0f;
 }
 
 void initGL() {	 		 
@@ -98,7 +105,8 @@ void display(void) {
 		// Drawing the scene	 		 
 		glColor3f(1.0, 1.0, 1.0);
 		//glutSolidSphere(6, 50, 60); //Sphere: radius=6, meridians=50, parallels=60
-		arbol();
+		coche.dibuja();
+		
 	glPopMatrix();
  
 	glFlush();

@@ -11,6 +11,7 @@ private:
 	int pv;
 public:
 	PuntoVector3D(GLfloat x, GLfloat y, GLfloat z, int pv);
+	PuntoVector3D():x(0), y(0), z(0) ,pv(1){};
 	~PuntoVector3D();
 	GLfloat getX();
 	GLfloat getY();
@@ -23,6 +24,10 @@ public:
 	PuntoVector3D* clonar();
 	GLfloat productoEscalar(PuntoVector3D* vector);
 	PuntoVector3D* productoVectorial(PuntoVector3D* vector);
+	PuntoVector3D operator&=(PuntoVector3D vector2) {
+		x = vector2.getX(); y = vector2.getY(); z = vector2.getZ();
+		return *this;
+	}
 };
 #endif
 
