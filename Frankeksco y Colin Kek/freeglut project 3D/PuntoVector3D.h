@@ -28,6 +28,7 @@ public:
 		x = vector2.getX(); y = vector2.getY(); z = vector2.getZ();
 		return *this;
 	}
+	void setVector(GLfloat x1, GLfloat y1, GLfloat z1) { x = x1;y = y1;z = z1; }
 };
 #endif
 

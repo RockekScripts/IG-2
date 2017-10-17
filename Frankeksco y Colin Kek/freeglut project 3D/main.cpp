@@ -198,7 +198,7 @@ int main(int argc, char *argv[]){
 	glutMainLoop(); 
   
 	// We would never reach this point using classic glut
-	system("PAUSE"); 
+	//system("PAUSE"); 
    
 	return 0;
 }
