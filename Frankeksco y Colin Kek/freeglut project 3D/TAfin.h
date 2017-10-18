@@ -6,9 +6,10 @@ class TAfin
 public:
 	TAfin();
 	~TAfin();
-	GLfloat m [16];
 	void traslada(PuntoVector3D* v);
 	void rota(PuntoVector3D* v, GLdouble angulo);
 	void postmultiplica(GLfloat* m1);
+	GLfloat* m;
+private:
 };
 

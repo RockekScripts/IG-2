@@ -16,6 +16,15 @@
     <Filter Include="Header Files\Coche">
       <UniqueIdentifier>{6001b9c5-7b31-4b06-88a6-7b37707a56b6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Coche">
+      <UniqueIdentifier>{c4246442-50a3-4cb0-9be0-20fa8f9b0e89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Simples">
+      <UniqueIdentifier>{4877269a-5c0f-4121-82b6-285fed99ef8a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Simples">
+      <UniqueIdentifier>{3f856ed0-be24-4b04-9b9d-a80349f97f75}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -45,11 +54,17 @@
     <ClCompile Include="ObjetoCuadrico.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Rueda.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Coche.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Coche</Filter>
+    </ClCompile>
+    <ClCompile Include="Rueda.cpp">
+      <Filter>Source Files\Coche</Filter>
+    </ClCompile>
+    <ClCompile Include="Cubo.cpp">
+      <Filter>Source Files\Coche</Filter>
+    </ClCompile>
+    <ClCompile Include="Cilindro.cpp">
+      <Filter>Source Files\Simples</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -77,11 +92,17 @@
     <ClInclude Include="ObjetoCuadrico.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Rueda.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Coche.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Coche</Filter>
+    </ClInclude>
+    <ClInclude Include="Rueda.h">
+      <Filter>Header Files\Coche</Filter>
+    </ClInclude>
+    <ClInclude Include="Cubo.h">
+      <Filter>Header Files\Coche</Filter>
+    </ClInclude>
+    <ClInclude Include="Cilindro.h">
+      <Filter>Header Files\Simples</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

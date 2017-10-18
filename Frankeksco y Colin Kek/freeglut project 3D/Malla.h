@@ -14,7 +14,7 @@ protected:
 	PuntoVector3D** normal;
 	int numeroCaras;
 	Cara** cara;
-
+	PuntoVector3D Color=PuntoVector3D(1,1,1,1);
 public:
 	Malla(int nV, int nN, int nC, PuntoVector3D** v, PuntoVector3D** n, Cara** c);
 	Malla();

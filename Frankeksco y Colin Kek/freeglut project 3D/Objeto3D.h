@@ -6,6 +6,6 @@ public:
 	Objeto3D() { mT = new TAfin(); };
 	virtual ~Objeto3D() { delete mT; };
 	TAfin* mT;
-	virtual void dibuja(){};
+	virtual void dibuja()=0;
 };
 

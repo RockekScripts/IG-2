@@ -6,5 +6,6 @@ class Coche :
 public:
 	Coche();
 	~Coche();
+
 };
 

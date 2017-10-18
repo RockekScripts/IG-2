@@ -39,6 +39,7 @@ int Malla::getNumeroCaras() {
 }
 
 void Malla::dibuja() {
+	glColor3d(Color.getX(), Color.getY(), Color.getZ());
 	for (int i = 0; i<numeroCaras; i++) {
 		if (!transparente)
 			glBegin(GL_POLYGON);

@@ -5,6 +5,7 @@
 ObjetoCuadrico::ObjetoCuadrico()
 {
 	color = PuntoVector3D(0, 0, 0, 1);
+	q = gluNewQuadric();
 }
 
 

@@ -3,6 +3,7 @@
 
 TAfin::TAfin()
 {
+	m = new GLfloat[16];
 	for (size_t i = 0; i < 16; i++)
 	{
 		if (i % 5 == 0)
@@ -10,6 +11,8 @@ TAfin::TAfin()
 		else
 			m[i] = 0;
 	}
+
+
 }
 
 
