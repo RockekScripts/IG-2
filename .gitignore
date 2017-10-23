@@ -13,7 +13,6 @@
 *.userprefs
 
 # Build results
-[Dd]ebug/
 [Dd]ebugPublic/
 [Rr]elease/
 [Rr]eleases/
@@ -47,7 +46,8 @@ project.lock.json
 project.fragment.lock.json
 artifacts/
 **/Properties/launchSettings.json
-
+*.tlog
+*.idb
 *_i.c
 *_p.c
 *_i.h
@@ -72,6 +72,8 @@ artifacts/
 *.pidb
 *.svclog
 *.scc
+*.exe
+
 
 # Chutzpah Test files
 _Chutzpah*
@@ -244,6 +246,7 @@ typings/
 
 # Visual Studio 6 workspace options file
 *.opt
+*.pdb
 
 # Visual Studio 6 auto-generated workspace file (contains which files were open etc.)
 *.vbw
@@ -257,7 +260,7 @@ typings/
 _Pvt_Extensions
 
 # Paket dependency manager
-.paket/paket.exe
+.paket/paket
 paket-files/
 
 # FAKE - F# Make

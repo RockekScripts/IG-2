@@ -1,7 +1,7 @@
 #include "Coche.h"
 #include "Rueda.h"
 #include "Cubo.h"
-
+#include "FaroCoche.h"
 
 
 Coche::Coche():ObjetoCompuesto()
@@ -27,9 +27,19 @@ Coche::Coche():ObjetoCompuesto()
 
 	v.setVector(-1, 0, -1);
 	hijos[3]->mT->traslada(&v);
-
 	this->introduceObjeto(new Cubo());
 
+	this->introduceObjeto(new FaroCoche());
+	rot.setVector(0, 1, 0);
+	v.setVector(1.5, 0.25, 0.25);
+	hijos[5]->mT->traslada(&v);
+	hijos[5]->mT->rota(&rot, -90);
+
+	this->introduceObjeto(new FaroCoche());
+	rot.setVector(0, 1, 0);
+	v.setVector(1.5, 0.25, -0.25);
+	hijos[6]->mT->traslada(&v);
+	hijos[6]->mT->rota(&rot, -90);
 
 
 }
