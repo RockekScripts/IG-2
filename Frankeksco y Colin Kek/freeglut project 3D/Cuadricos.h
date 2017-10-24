@@ -4,11 +4,12 @@ class Cilindro :
 	public ObjetoCuadrico
 {
 public:
-	Cilindro(GLfloat H, GLfloat R, GLint Nlados = 15);
+	Cilindro(GLfloat H, GLfloat RBot, GLfloat RTop=0, GLint Nlados = 15);
 	virtual ~Cilindro();
 	virtual void dibuja();
 private:
-	GLfloat radius;
+	GLfloat radiusBot;
+	GLfloat radiusTop;
 	GLfloat height;
 	GLint Lados;
 	
@@ -36,5 +37,17 @@ public:
 private:
 	GLfloat radius;
 	GLint Lados;
+};
+
+class Esfera : public ObjetoCuadrico
+{
+public:
+	Esfera(GLfloat R);
+	virtual ~Esfera();
+	virtual void dibuja();
+private:
+	GLfloat radius;
+
+
 };
 

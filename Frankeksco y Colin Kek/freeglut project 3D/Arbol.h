@@ -34,5 +34,14 @@ public:
 private:
 
 };
+class Alamo :public Roble
+{
+public:
+	Alamo();
+	virtual ~Alamo() {};
+
+private:
+
+};
 
 

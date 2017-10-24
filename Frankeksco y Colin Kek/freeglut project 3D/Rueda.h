@@ -1,11 +1,11 @@
 #pragma once
-#include "ObjetoCuadrico.h"
+#include "ObjetoCompuesto.h"
 class Rueda :
-	public ObjetoCuadrico
+	public ObjetoCompuesto
 {
 public:
 	Rueda();
 	virtual ~Rueda();
-	virtual void dibuja();
+
 };
 

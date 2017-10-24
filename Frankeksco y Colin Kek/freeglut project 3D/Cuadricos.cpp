@@ -1,5 +1,5 @@
 #include "Cuadricos.h"
-Cilindro::Cilindro(GLfloat H, GLfloat R, GLint Nlados) :ObjetoCuadrico(), height(H), radius(R), Lados(Nlados)
+Cilindro::Cilindro(GLfloat H, GLfloat RBot, GLfloat RTop, GLint Nlados) :ObjetoCuadrico(), height(H), radiusBot(RBot), radiusTop((RTop == 0)?RBot:RTop), Lados(Nlados)
 {
 }
 
@@ -11,7 +11,7 @@ void Cilindro::dibuja() {
 	putColor();
 	glPushMatrix();
 	glMultMatrixf(this->mT->m);
-	gluCylinder(q, radius, radius,height,Lados, 15);
+	gluCylinder(q, radiusBot, radiusTop,height,Lados, 15);
 	glPopMatrix();
 }
 
@@ -49,3 +49,22 @@ void Circulo::dibuja()
 	gluDisk(q, 0,radius,Lados,15);
 	glPopMatrix();
 }
+
+Esfera::Esfera(GLfloat R) :ObjetoCuadrico(), radius(R)
+{
+}
+
+Esfera::~Esfera()
+{
+}
+
+void Esfera::dibuja()
+{
+	putColor();
+	glPushMatrix();
+	glMultMatrixf(this->mT->m);
+	gluSphere(q, radius, 15, 15);
+	glPopMatrix();
+}
+
+

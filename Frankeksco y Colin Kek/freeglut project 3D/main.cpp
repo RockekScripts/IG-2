@@ -39,7 +39,8 @@ void arbol();
 void buildSceneObjects() {
 	coche = new Coche();
 	Farete = new FaroCoche();
-	arbolete = new Pino();
+	arbolete = new Alamo();
+	arbolete->mT->traslada(&PuntoVector3D(5, 0, 0, 1));
     angX=0.0f;
     angY=0.0f;
 	angZ = 0.0f;
@@ -112,7 +113,7 @@ void display(void) {
 		glColor3f(1.0, 1.0, 1.0);
 		//glutSolidSphere(6, 50, 60); //Sphere: radius=6, meridians=50, parallels=60
 		//coche.mT->traslada(new PuntoVector3D(1, 2, 1, 1));
-		//coche->dibuja();
+		coche->dibuja();
 		arbolete->dibuja();
 		
 	glPopMatrix();
@@ -162,7 +163,10 @@ void key(unsigned char key, int x, int y){
 		case 's': angY=angY+5; break;
 		case 'x': angY=angY-5; break;
 		case 'd': angZ=angZ+5; break;
-		case 'c': angZ=angZ-5; break;  		 
+		case 'c': angZ=angZ-5; break;
+		case 'w': coche->mT->traslada(&PuntoVector3D(1, 0, 0, 1)); break;
+		case 'q': coche->mT->traslada(&PuntoVector3D(-1, 0, 0, 1)); break;
+
 		default:
 			need_redisplay = false;
 			break;

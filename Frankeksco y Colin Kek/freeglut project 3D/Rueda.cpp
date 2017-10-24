@@ -1,22 +1,20 @@
 #include "Rueda.h"
+#include "Cuadricos.h"
 
 
 
-Rueda::Rueda() :ObjetoCuadrico()
+Rueda::Rueda() :ObjetoCompuesto()
 {
+	Objeto3D * aux = new Cilindro(0.5, 0.5);
+	this->introduceObjeto(aux);
+	aux = new Circulo(0.5);
+	this->introduceObjeto(aux);
+	aux = new Circulo(0.5);
+	aux->mT->traslada(&PuntoVector3D(0, 0, 0.5, 1));
+
 }
 
 
 Rueda::~Rueda()
 {
-}
-
-void Rueda::dibuja() {
-	putColor();
-	glPushMatrix();
-	glMultMatrixf(this->mT->m);
-	gluCylinder(q, 0.5f, 0.5f, 0.5f, 15, 15);
-	glColor3d(1, 1, 1);
-	gluDisk(q, 0.05, 0.5f, 4, 15);
-	glPopMatrix();
 }
