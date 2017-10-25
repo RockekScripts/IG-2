@@ -73,6 +73,7 @@
     <ClCompile Include="Coche.cpp" />
     <ClCompile Include="Cuadricos.cpp" />
     <ClCompile Include="Cubo.cpp" />
+    <ClCompile Include="escena.cpp" />
     <ClCompile Include="FaroCoche.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Malla.cpp" />
@@ -90,6 +91,7 @@
     <ClInclude Include="Cuadricos.h" />
     <ClInclude Include="Coche.h" />
     <ClInclude Include="Cubo.h" />
+    <ClInclude Include="escena.h" />
     <ClInclude Include="FaroCoche.h" />
     <ClInclude Include="Malla.h" />
     <ClInclude Include="Objeto3D.h" />

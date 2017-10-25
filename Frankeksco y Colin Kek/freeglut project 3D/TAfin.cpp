@@ -15,7 +15,15 @@ TAfin::TAfin()
 
 }
 
-
+void TAfin::reinicia(){
+	for (size_t i = 0; i < 16; i++)
+	{
+		if (i % 5 == 0)
+			m[i] = 1;
+		else
+			m[i] = 0;
+	}
+}
 TAfin::~TAfin()
 {
 }
@@ -25,6 +33,18 @@ void TAfin::traslada(PuntoVector3D* v) {
 	glLoadIdentity();
 	glTranslatef(v->getX(), v->getY(), v->getZ());
 	GLfloat* m1=new GLfloat[16];
+	//Dejar la matriz actual de modelado-vista en m1
+	//Los 16 datos están enumerados por columnas
+	glGetFloatv(GL_MODELVIEW_MATRIX, m1);
+	glPopMatrix();
+	postmultiplica(m1);
+}
+void TAfin::escala(PuntoVector3D* v) {
+	glMatrixMode(GL_MODELVIEW);
+	glPushMatrix();
+	glLoadIdentity();
+	glScalef(v->getX(), v->getY(), v->getZ());
+	GLfloat* m1 = new GLfloat[16];
 	//Dejar la matriz actual de modelado-vista en m1
 	//Los 16 datos están enumerados por columnas
 	glGetFloatv(GL_MODELVIEW_MATRIX, m1);

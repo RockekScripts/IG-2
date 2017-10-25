@@ -7,6 +7,7 @@
 #include "Coche.h"
 #include "FaroCoche.h"
 #include "Arbol.h"
+#include "escena.h"
 //#include <GL/glut.h>
 
 #include <iostream>
@@ -20,26 +21,28 @@ using namespace std;
 int WIDTH= 500, HEIGHT= 500;
 
 // Viewing frustum parameters
-GLdouble xRight=10, xLeft=-xRight, yTop=10, yBot=-yTop, N=1, F=1000;
+GLdouble xRight=2, xLeft=-xRight, yTop=2, yBot=-yTop, N=2, F=100;
 
 // Camera parameters
-GLdouble eyeX=100.0, eyeY=100.0, eyeZ=100.0;
+GLdouble eyeX=0, eyeY=10, eyeZ=0;
 GLdouble lookX=0.0, lookY=0.0, lookZ=0.0;
-GLdouble upX=0, upY=1, upZ=0;
+GLdouble upX=-1, upY=0, upZ=0;
 
 
 //
 Coche* coche;
 FaroCoche* Farete;
 Arbol * arbolete;
-
+escena* scene;
 // Scene variables
 GLfloat angX, angY, angZ; 
 void arbol();
+void posicionaCamara();
 void buildSceneObjects() {
 	coche = new Coche();
 	Farete = new FaroCoche();
 	arbolete = new Alamo();
+	scene = new escena();
 	arbolete->mT->traslada(&PuntoVector3D(5, 0, 0, 1));
     angX=0.0f;
     angY=0.0f;
@@ -76,8 +79,8 @@ void initGL() {
 	// Frustum set up
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();  
-	glFrustum(xLeft, xRight, yBot, yTop, N, F);
-	//glOrtho(xLeft, xRight, yBot, yTop, N, F);
+	//glFrustum(xLeft, xRight, yBot, yTop, N, F);
+	glOrtho(xLeft, xRight, yBot, yTop, N, F);
 
 	// Viewport set up
     glViewport(0, 0, WIDTH, HEIGHT);  	
@@ -113,8 +116,9 @@ void display(void) {
 		glColor3f(1.0, 1.0, 1.0);
 		//glutSolidSphere(6, 50, 60); //Sphere: radius=6, meridians=50, parallels=60
 		//coche.mT->traslada(new PuntoVector3D(1, 2, 1, 1));
-		coche->dibuja();
-		arbolete->dibuja();
+		//coche->dibuja();
+		//arbolete->dibuja();
+		scene->dibuja();
 		
 	glPopMatrix();
  
@@ -147,7 +151,7 @@ void resize(int newWidth, int newHeight) {
 
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();   
-	glOrtho(xLeft, xRight, yBot, yTop, N, F);
+	glFrustum(xLeft, xRight, yBot, yTop, N, F);
 }
 
 void key(unsigned char key, int x, int y){
@@ -164,16 +168,46 @@ void key(unsigned char key, int x, int y){
 		case 'x': angY=angY-5; break;
 		case 'd': angZ=angZ+5; break;
 		case 'c': angZ=angZ-5; break;
-		case 'w': coche->mT->traslada(&PuntoVector3D(1, 0, 0, 1)); break;
-		case 'q': coche->mT->traslada(&PuntoVector3D(-1, 0, 0, 1)); break;
+		case 'r': scene->coche->mT->reinicia(); break;
+
+
+
+		case '8': scene->coche->mT->traslada(&PuntoVector3D(1, 0, 0, 1)); break;
+		case '2': scene->coche->mT->traslada(&PuntoVector3D(-1, 0, 0, 1)); break;
+
+		case '4': scene->coche->mT->rota(&PuntoVector3D(0, 1, 0, 1), 45); break;
+		case '7': scene->coche->mT->rota(&PuntoVector3D(0, 1, 0, 1), 10); scene->coche->mT->traslada(&PuntoVector3D(1, 0, 0, 1)); break;
+		case '1': scene->coche->mT->rota(&PuntoVector3D(0, 1, 0, 1), -10); scene->coche->mT->traslada(&PuntoVector3D(-1, 0, 0, 1)); break;
+
+
+
+		case '6': scene->coche->mT->rota(&PuntoVector3D(0, 1, 0, 1), -45); break;
+		case '9': scene->coche->mT->rota(&PuntoVector3D(0, 1, 0, 1), -10); scene->coche->mT->traslada(&PuntoVector3D(1, 0, 0, 1)); break;
+		case '3': scene->coche->mT->rota(&PuntoVector3D(0, 1, 0, 1), 10); scene->coche->mT->traslada(&PuntoVector3D(-1, 0, 0, 1)); break;
+
 
 		default:
 			need_redisplay = false;
 			break;
 	}
-
-	if (need_redisplay)
+	if (need_redisplay){
+		scene->update();
+		posicionaCamara();
 		glutPostRedisplay();
+
+	}
+}
+
+void posicionaCamara(){
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+	PuntoVector3D pos = scene->coche->mT->getPos();
+	eyeX = pos.getX();
+	eyeZ = pos.getZ();
+	lookX = pos.getX();
+	lookZ = pos.getZ();
+
+	gluLookAt(eyeX, eyeY, eyeZ, lookX, lookY, lookZ, upX, upY, upZ);
 }
 
 int main(int argc, char *argv[]){

@@ -28,6 +28,8 @@ public:
 		x = vector2.getX(); y = vector2.getY(); z = vector2.getZ();
 		return *this;
 	}
+	GLfloat modulo(){ return sqrt(x*x + y*y + z*z); }
+	GLfloat dist(PuntoVector3D v2){ return sqrt((v2.getX() - x)*(v2.getX() - x) + (v2.getY() - y)*(v2.getY() - y) + (v2.getZ() - z) *(v2.getZ() - z)); }
 	void setVector(GLfloat x1, GLfloat y1, GLfloat z1) { x = x1;y = y1;z = z1; }
 };
 #endif
