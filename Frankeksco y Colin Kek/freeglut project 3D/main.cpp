@@ -1,6 +1,8 @@
 #include <Windows.h>
 #include <gl/GL.h>
 #include <gl/GLU.h>
+#include <time.h>
+
 
 #include <GL/freeglut.h>
 #include "Rueda.h"
@@ -39,6 +41,7 @@ GLfloat angX, angY, angZ;
 void arbol();
 void posicionaCamara();
 void buildSceneObjects() {
+	srand(time(NULL));
 	coche = new Coche();
 	Farete = new FaroCoche();
 	arbolete = new Alamo();

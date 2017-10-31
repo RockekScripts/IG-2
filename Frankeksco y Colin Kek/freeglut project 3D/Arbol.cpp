@@ -49,4 +49,18 @@ Alamo::Alamo() :Roble()
 	introduceObjeto(aux);
 }
 
+Copa::Copa(int tipo):tipo(tipo){
+}
 
+CopaSimple::CopaSimple(int tipo) : Copa(tipo){
+	Objeto3D* aux;
+	if (tipo == 0){
+		aux = new Piramide(dameRandom(4, 3.5), dameRandom(1.5, 1), 15, PuntoVector3D(0.43, 0.53, 0.1, 0));
+	}
+	else
+	{
+		aux =  new Esfera(dameRandom(1.75, 1.25));
+
+	}
+	introduceObjeto(aux);
+}

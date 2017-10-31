@@ -43,5 +43,34 @@ public:
 private:
 
 };
+class Copa: public ObjetoCompuesto
+{
+public:
+	Copa(int tipo){};
+	virtual ~Copa(){};
 
+protected:
+	int tipo;
+
+};
+
+class CopaSimple: public Copa
+{
+public:
+	CopaSimple(int tipo);
+	virtual ~CopaSimple();
+
+private:
+
+};
+
+class CopaDoble:public Copa
+{
+public:
+	CopaDoble(int tipo);
+	virtual ~CopaDoble();
+
+private:
+
+};
 
