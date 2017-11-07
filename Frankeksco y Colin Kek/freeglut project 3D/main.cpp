@@ -1,3 +1,5 @@
+//Colin Ulrich Cop
+//Francisco Solano López-Bleda De Castro
 #include <Windows.h>
 #include <gl/GL.h>
 #include <gl/GLU.h>
@@ -32,9 +34,6 @@ GLdouble upX=-1, upY=0, upZ=0;
 
 
 //
-Coche* coche;
-FaroCoche* Farete;
-Arbol * arbolete;
 escena* scene;
 // Scene variables
 GLfloat angX, angY, angZ; 
@@ -42,11 +41,7 @@ void arbol();
 void posicionaCamara();
 void buildSceneObjects() {
 	srand(time(NULL));
-	coche = new Coche();
-	Farete = new FaroCoche();
-	arbolete = new Alamo();
 	scene = new escena();
-	arbolete->mT->traslada(&PuntoVector3D(5, 0, 0, 1));
     angX=0.0f;
     angY=0.0f;
 	angZ = 0.0f;
@@ -160,33 +155,33 @@ void resize(int newWidth, int newHeight) {
 void key(unsigned char key, int x, int y){
 	bool need_redisplay = true;
 	switch (key) {
-		case 27:  /* Escape key */
-			//continue_in_main_loop = false; // (**)
-			//Freeglut's sentence for stopping glut's main loop (*)
-			glutLeaveMainLoop (); 
-			break;		 
-		case 'a': angX=angX+5; break;
-		case 'z': angX=angX-5; break; 
-		case 's': angY=angY+5; break;
-		case 'x': angY=angY-5; break;
-		case 'd': angZ=angZ+5; break;
-		case 'c': angZ=angZ-5; break;
-		case 'r': scene->coche->mT->reinicia(); break;
+	case 27:  /* Escape key */
+		//continue_in_main_loop = false; // (**)
+		//Freeglut's sentence for stopping glut's main loop (*)
+		glutLeaveMainLoop();
+		break;
+	case 'a': angX = angX + 5; break;
+	case 'z': angX = angX - 5; break;
+	case 's': angY = angY + 5; break;
+	case 'x': angY = angY - 5; break;
+	case 'd': angZ = angZ + 5; break;
+	case 'c': angZ = angZ - 5; break;
+	case 'r': scene->coche->mT->reinicia(); break;
 
 
 
-		case '8': scene->coche->mT->traslada(&PuntoVector3D(1, 0, 0, 1)); break;
-		case '2': scene->coche->mT->traslada(&PuntoVector3D(-1, 0, 0, 1)); break;
+	case '8': if (!scene->getFin())scene->coche->mT->traslada(&PuntoVector3D(1, 0, 0, 1)); break;
+	case '2': if (!scene->getFin())scene->coche->mT->traslada(&PuntoVector3D(-1, 0, 0, 1)); break;
 
-		case '4': scene->coche->mT->rota(&PuntoVector3D(0, 1, 0, 1), 45); break;
-		case '7': scene->coche->mT->rota(&PuntoVector3D(0, 1, 0, 1), 10); scene->coche->mT->traslada(&PuntoVector3D(1, 0, 0, 1)); break;
-		case '1': scene->coche->mT->rota(&PuntoVector3D(0, 1, 0, 1), -10); scene->coche->mT->traslada(&PuntoVector3D(-1, 0, 0, 1)); break;
+	case '4': if (!scene->getFin())scene->coche->mT->rota(&PuntoVector3D(0, 1, 0, 1), 45); break;
+	case '7': if (!scene->getFin()){scene->coche->mT->rota(&PuntoVector3D(0, 1, 0, 1), 10); scene->coche->mT->traslada(&PuntoVector3D(1, 0, 0, 1));} break;
+	case '1': if (!scene->getFin()){scene->coche->mT->rota(&PuntoVector3D(0, 1, 0, 1), -10); scene->coche->mT->traslada(&PuntoVector3D(-1, 0, 0, 1));} break;
 
 
 
-		case '6': scene->coche->mT->rota(&PuntoVector3D(0, 1, 0, 1), -45); break;
-		case '9': scene->coche->mT->rota(&PuntoVector3D(0, 1, 0, 1), -10); scene->coche->mT->traslada(&PuntoVector3D(1, 0, 0, 1)); break;
-		case '3': scene->coche->mT->rota(&PuntoVector3D(0, 1, 0, 1), 10); scene->coche->mT->traslada(&PuntoVector3D(-1, 0, 0, 1)); break;
+		case '6': if (!scene->getFin())scene->coche->mT->rota(&PuntoVector3D(0, 1, 0, 1), -45); break;
+		case '9': if (!scene->getFin()){ scene->coche->mT->rota(&PuntoVector3D(0, 1, 0, 1), -10); scene->coche->mT->traslada(&PuntoVector3D(1, 0, 0, 1)); } break;
+		case '3': if (!scene->getFin()){ scene->coche->mT->rota(&PuntoVector3D(0, 1, 0, 1), 10); scene->coche->mT->traslada(&PuntoVector3D(-1, 0, 0, 1)); }break;
 
 
 		default:

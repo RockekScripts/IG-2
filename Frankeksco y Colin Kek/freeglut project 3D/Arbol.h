@@ -6,6 +6,8 @@ class Arbol :
 public:
 	Arbol();
 	virtual ~Arbol();
+protected:
+	GLdouble altura;
 };
 class Abeto:public Arbol
 {
@@ -16,7 +18,7 @@ public:
 private:
 
 };
-class Pino:public Abeto
+class Pino :public Arbol
 {
 public:
 	Pino();
@@ -34,7 +36,7 @@ public:
 private:
 
 };
-class Alamo :public Roble
+class Alamo :public Arbol
 {
 public:
 	Alamo();
@@ -46,7 +48,7 @@ private:
 class Copa: public ObjetoCompuesto
 {
 public:
-	Copa(int tipo){};
+	Copa(int tipo);
 	virtual ~Copa(){};
 
 protected:
@@ -58,17 +60,17 @@ class CopaSimple: public Copa
 {
 public:
 	CopaSimple(int tipo);
-	virtual ~CopaSimple();
+	virtual ~CopaSimple(){}
 
 private:
 
 };
 
-class CopaDoble:public Copa
+class CopaDoble:public CopaSimple
 {
 public:
 	CopaDoble(int tipo);
-	virtual ~CopaDoble();
+	virtual ~CopaDoble(){};
 
 private:
 

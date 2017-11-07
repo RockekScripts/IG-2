@@ -3,7 +3,7 @@
 
 ObjetoCompuesto::ObjetoCompuesto():Objeto3D()
 {
-	hijos = new Objeto3D*[100];
+	hijos = new Objeto3D*[100000];
 }
 
 
